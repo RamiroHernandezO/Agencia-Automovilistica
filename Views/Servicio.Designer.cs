@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.pnAdmin = new Guna.UI2.WinForms.Guna2Panel();
+            this.cboRefacciones = new Guna.UI2.WinForms.Guna2ComboBox();
             this.cboEncargado = new Guna.UI2.WinForms.Guna2ComboBox();
             this.cboEstatus = new Guna.UI2.WinForms.Guna2ComboBox();
             this.dtpFecha = new Guna.UI2.WinForms.Guna2DateTimePicker();
@@ -47,7 +48,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblConsultaEntrega = new System.Windows.Forms.Label();
             this.cboConsultar = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.cboRefacciones = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.cboActualizar = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.guna2CheckBox1 = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.pnAdmin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsultaAdmin)).BeginInit();
             this.pnUsuario.SuspendLayout();
@@ -56,6 +59,9 @@
             // 
             // pnAdmin
             // 
+            this.pnAdmin.Controls.Add(this.label3);
+            this.pnAdmin.Controls.Add(this.guna2CheckBox1);
+            this.pnAdmin.Controls.Add(this.cboActualizar);
             this.pnAdmin.Controls.Add(this.cboRefacciones);
             this.pnAdmin.Controls.Add(this.cboEncargado);
             this.pnAdmin.Controls.Add(this.cboEstatus);
@@ -72,6 +78,22 @@
             this.pnAdmin.Name = "pnAdmin";
             this.pnAdmin.Size = new System.Drawing.Size(888, 528);
             this.pnAdmin.TabIndex = 3;
+            // 
+            // cboRefacciones
+            // 
+            this.cboRefacciones.BackColor = System.Drawing.Color.Transparent;
+            this.cboRefacciones.BorderRadius = 13;
+            this.cboRefacciones.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboRefacciones.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboRefacciones.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cboRefacciones.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cboRefacciones.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cboRefacciones.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cboRefacciones.ItemHeight = 30;
+            this.cboRefacciones.Location = new System.Drawing.Point(27, 257);
+            this.cboRefacciones.Name = "cboRefacciones";
+            this.cboRefacciones.Size = new System.Drawing.Size(220, 36);
+            this.cboRefacciones.TabIndex = 24;
             // 
             // cboEncargado
             // 
@@ -112,7 +134,7 @@
             this.dtpFecha.FillColor = System.Drawing.Color.White;
             this.dtpFecha.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dtpFecha.Location = new System.Drawing.Point(546, 126);
+            this.dtpFecha.Location = new System.Drawing.Point(546, 153);
             this.dtpFecha.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtpFecha.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtpFecha.Name = "dtpFecha";
@@ -131,7 +153,7 @@
             this.cboVehiculoId.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cboVehiculoId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cboVehiculoId.ItemHeight = 30;
-            this.cboVehiculoId.Location = new System.Drawing.Point(27, 126);
+            this.cboVehiculoId.Location = new System.Drawing.Point(27, 153);
             this.cboVehiculoId.Name = "cboVehiculoId";
             this.cboVehiculoId.Size = new System.Drawing.Size(220, 36);
             this.cboVehiculoId.TabIndex = 20;
@@ -349,21 +371,52 @@
             this.cboConsultar.TabIndex = 1;
             this.cboConsultar.SelectedIndexChanged += new System.EventHandler(this.cboConsultar_SelectedIndexChanged);
             // 
-            // cboRefacciones
+            // cboActualizar
             // 
-            this.cboRefacciones.BackColor = System.Drawing.Color.Transparent;
-            this.cboRefacciones.BorderRadius = 13;
-            this.cboRefacciones.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cboRefacciones.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboRefacciones.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cboRefacciones.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cboRefacciones.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cboRefacciones.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.cboRefacciones.ItemHeight = 30;
-            this.cboRefacciones.Location = new System.Drawing.Point(27, 273);
-            this.cboRefacciones.Name = "cboRefacciones";
-            this.cboRefacciones.Size = new System.Drawing.Size(220, 36);
-            this.cboRefacciones.TabIndex = 24;
+            this.cboActualizar.BackColor = System.Drawing.Color.Transparent;
+            this.cboActualizar.BorderRadius = 13;
+            this.cboActualizar.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboActualizar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboActualizar.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cboActualizar.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cboActualizar.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cboActualizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cboActualizar.ItemHeight = 30;
+            this.cboActualizar.Location = new System.Drawing.Point(27, 111);
+            this.cboActualizar.Name = "cboActualizar";
+            this.cboActualizar.Size = new System.Drawing.Size(220, 36);
+            this.cboActualizar.TabIndex = 25;
+            // 
+            // guna2CheckBox1
+            // 
+            this.guna2CheckBox1.AutoSize = true;
+            this.guna2CheckBox1.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2CheckBox1.CheckedState.BorderRadius = 2;
+            this.guna2CheckBox1.CheckedState.BorderThickness = 0;
+            this.guna2CheckBox1.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2CheckBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.guna2CheckBox1.ForeColor = System.Drawing.Color.Aqua;
+            this.guna2CheckBox1.Location = new System.Drawing.Point(661, 130);
+            this.guna2CheckBox1.Name = "guna2CheckBox1";
+            this.guna2CheckBox1.Size = new System.Drawing.Size(47, 22);
+            this.guna2CheckBox1.TabIndex = 26;
+            this.guna2CheckBox1.Text = "No";
+            this.guna2CheckBox1.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.guna2CheckBox1.UncheckedState.BorderRadius = 2;
+            this.guna2CheckBox1.UncheckedState.BorderThickness = 0;
+            this.guna2CheckBox1.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.guna2CheckBox1.CheckedChanged += new System.EventHandler(this.guna2CheckBox1_CheckedChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Aqua;
+            this.label3.Location = new System.Drawing.Point(561, 109);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(228, 18);
+            this.label3.TabIndex = 27;
+            this.label3.Text = "Quieres actualizar algun registro?";
             // 
             // frmServicio
             // 
@@ -408,5 +461,8 @@
         private Guna.UI2.WinForms.Guna2ComboBox cboEstatus;
         private Guna.UI2.WinForms.Guna2ComboBox cboEncargado;
         private Guna.UI2.WinForms.Guna2ComboBox cboRefacciones;
+        private Guna.UI2.WinForms.Guna2ComboBox cboActualizar;
+        private Guna.UI2.WinForms.Guna2CheckBox guna2CheckBox1;
+        private System.Windows.Forms.Label label3;
     }
 }

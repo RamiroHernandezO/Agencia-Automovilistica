@@ -66,6 +66,7 @@ namespace Views
             }
             else
             {
+                cboActualizar.Hide();
                 dgvConsultaAdmin.Hide();
                 pnAdmin.Show();
                 btnActualizar.Enabled = false;
@@ -163,15 +164,37 @@ namespace Views
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             CServicio Cservicio = new CServicio();
-            ServicioCls servicioCls = new ServicioCls();
+            var serviciosconvehiculos=Cservicio.Consultar();
+            var vehiculo = serviciosconvehiculos.FirstOrDefault(d=>d.ServicioID == int.Parse(cboActualizar.SelectedValue.ToString()));
+
+            ServicioCls servicioCls = new ServicioCls
+            {
+                ServicioID = vehiculo.ServicioID,
+                VehiculoID = vehiculo.VehiculoID,
+                Fecha = dtpFecha.Value,
+                Estatus = (string)cboEstatus.SelectedItem,
+            };
+
+
+            if (cboEstatus.SelectedIndex != 0 && cboActualizar.SelectedIndex != 0)
+            {
+                Cservicio.Actualizar(servicioCls);
+
+                MessageBox.Show("Actualizado correctamente!", "Actualizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Limpiar();
+            }
+            else
+            {
+                MessageBox.Show("Tienes que llenar todos los campos!", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
             CServicioRefacciones Cservicio = new CServicioRefacciones();
-            btnGuardar.Location = new Point(3, 303);
-            btnConsultar.Location = new Point(189, 303);
-            btnActualizar.Location = new Point(384, 303);
+            btnGuardar.Location = new Point(27, 303);
+            btnConsultar.Location = new Point(333, 303);
+            btnActualizar.Location = new Point(636, 303);
             btnActualizar.Enabled = true;
 
             dgvConsultaAdmin.Show();
@@ -238,6 +261,41 @@ namespace Views
             cboEstatus.SelectedIndex = 0;
             cboEncargado.SelectedIndex = 0;
             cboRefacciones.SelectedIndex = 0;   
+            cboActualizar.SelectedIndex = 0;
+            guna2CheckBox1.Checked = false;
+        }
+
+        private void guna2CheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            CServicio cServicio = new CServicio();
+            if (guna2CheckBox1.Checked==true)
+            {
+                cboEncargado.Hide();
+                cboRefacciones.Hide();
+               cboVehiculoId.Hide();
+                cboActualizar.Show();
+                guna2CheckBox1.Text = "Si";
+                var servicio = cServicio.Consultar();
+                List<KeyValuePair<int, string>> itemsCombo = new List<KeyValuePair<int, string>>();
+                itemsCombo.Add(new KeyValuePair<int, string>(0, "--Seleccionar Servicio--"));
+
+                foreach (var item in servicio)
+                {
+                    itemsCombo.Add(new KeyValuePair<int, string>(item.ServicioID, item.ServicioID.ToString()));
+
+                }
+                cboActualizar.DataSource = itemsCombo;
+                cboActualizar.DisplayMember = "Value";
+                cboActualizar.ValueMember = "Key";
+            }
+            else
+            {
+                guna2CheckBox1.Text = "No";
+                cboEncargado.Show();
+                cboRefacciones.Show();
+                cboVehiculoId.Show();
+                cboActualizar.Hide();
+            }
         }
     }
 }
