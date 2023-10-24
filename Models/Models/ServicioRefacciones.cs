@@ -14,8 +14,9 @@ namespace Models.Models
 
     }
 
-    public class ServicioRefaccionesDetalladoCls : ServicioRefaccionesCls
+    public class ServicioRefaccionesDetalladoCls
     {
+        public int ServicioID { get; set; }
         public string Marca { get; set; }
         public string Modelo { get; set; }
         public int Año { get; set; }
@@ -24,5 +25,6 @@ namespace Models.Models
         public string Refaccion { get; set; }
         public string Descripcion { get; set; }
         public decimal Precio { get; set; }
+        public int Cantidad { get; set; }
     }
 }

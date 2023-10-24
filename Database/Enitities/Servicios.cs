@@ -38,6 +38,7 @@ namespace Database.Entities
             }
         }
 
+
         public void Actualizar(ServicioCls servicio)
         {
             try
@@ -118,6 +119,37 @@ namespace Database.Entities
             }
             return servicios;
         }
+        public List<EstatusContadorCls> ContarPorEstatus()
+        {
+            List<EstatusContadorCls> conteos = new List<EstatusContadorCls>();
+            try
+            {
+                cmd.Connection = Connection.OpenConecction();
+                cmd.CommandText = "sp_ContarPorEstatus";
+                cmd.CommandType = CommandType.StoredProcedure;
+                reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    conteos.Add(new EstatusContadorCls
+                    {
+                        Estatus = reader["Estatus"].ToString(),
+                        Cantidad = Convert.ToInt32(reader["Cantidad"])
+                    });
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                cmd.Connection = Connection.CloseConecction();
+            }
+            return conteos;
+        }
+
+
         public List<ServicioConVehiculoCls> ConsultarServiciosConVehiculos()
         {
             List<ServicioConVehiculoCls> serviciosConVehiculos = new List<ServicioConVehiculoCls>();

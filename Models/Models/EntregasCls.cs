@@ -12,5 +12,14 @@ namespace Models.Models
         public int AdminID { get; set; }
         public DateTime FechaEntrega { get; set; }
     }
-   
+
+    public class EntregaDetalladoCls
+    {
+        public int ServicioID { get; set; }
+        public DateTime FechaServicio { get; set; }
+        public string Estatus { get; set; }
+        public string Usuario { get; set; }
+        public DateTime FechaEntrega { get; set; }
+    }
+
 }

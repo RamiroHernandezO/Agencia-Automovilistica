@@ -114,9 +114,9 @@ namespace Database.Entities
             }
             return entregas;
         }
-        public List<dynamic> ConsultarDetallado()
+        public List<EntregaDetalladoCls> ConsultarDetallado()
         {
-            List<dynamic> entregasDetalladas = new List<dynamic>();
+            List<EntregaDetalladoCls> entregasDetalladas = new List<EntregaDetalladoCls>();
             try
             {
                 cmd.Connection = Connection.OpenConecction();
@@ -126,13 +126,12 @@ namespace Database.Entities
 
                 while (reader.Read())
                 {
-                    entregasDetalladas.Add(new
+                    entregasDetalladas.Add(new EntregaDetalladoCls
                     {
                         ServicioID = Convert.ToInt32(reader["ServicioID"]),
                         FechaServicio = Convert.ToDateTime(reader["FechaServicio"]),
                         Estatus = reader["Estatus"].ToString(),
                         Usuario = reader["Usuario"].ToString(),
-                        Rol = reader["Rol"].ToString(),
                         FechaEntrega = Convert.ToDateTime(reader["FechaEntrega"])
                     });
                 }

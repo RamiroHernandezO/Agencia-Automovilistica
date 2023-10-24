@@ -13,7 +13,7 @@ namespace Controllers.CRUD
             return entregasData.Consultar();
         }
 
-        public List<dynamic> ConsultarDetallado()
+        public List<EntregaDetalladoCls> ConsultarDetallado()
         {
             return entregasData.ConsultarDetallado();
         }
