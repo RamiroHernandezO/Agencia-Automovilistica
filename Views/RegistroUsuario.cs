@@ -68,12 +68,17 @@ namespace Views
             CUsuario cUsuario = new CUsuario();
             cUsuario.Insertar(nuevoUsuario);
             MessageBox.Show("Usuario registrado con éxito!");
-
+            Limpiar();
             frmLogin frmLogin = new frmLogin();
             frmLogin.Show();
             this.Hide();
         }
-
+        public void Limpiar()
+        {
+            txtContraseña.Text = string.Empty;
+            txtEmail.Text = string.Empty;   
+            txtUsuario.Text = string.Empty;
+        }
         private void txtUsuario_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsLetter(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != ' ' && e.KeyChar != '_' && e.KeyChar != (char)8)
@@ -100,6 +105,11 @@ namespace Views
             {
                 e.Handled = true;  
             }
+        }
+
+        private void frmRegistroUsuario_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

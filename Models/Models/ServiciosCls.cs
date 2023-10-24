@@ -21,4 +21,9 @@ namespace Models.Models
         public int Año { get; set; }
         public string Dueño { get; set; }
     }
+    public class EstatusContadorCls
+    {
+        public string Estatus { get; set; }
+        public int Cantidad { get; set; }
+    }
 }

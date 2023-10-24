@@ -17,7 +17,10 @@ namespace Controllers.CRUD
         {
             return Cservicio.ConsultarServiciosConVehiculos();
         }
-
+        public List<EstatusContadorCls> ContarPorEstatus()
+        {
+            return Cservicio.ContarPorEstatus();
+        }
         public void Insertar(ServicioCls servicio)
         {
             Cservicio.Insertar(servicio);

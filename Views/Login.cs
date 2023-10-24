@@ -53,7 +53,6 @@ namespace Views
                 {
                     frmInicio frmInicio = new frmInicio();
                     frmInicio.role = usuarioEncontrado.Rol;
-
                     frmInicio.Show();
                     this.Hide();
                 }
@@ -69,6 +68,11 @@ namespace Views
             frmRegistroUsuario frmRegistroUsuario = new frmRegistroUsuario();
             frmRegistroUsuario.Show();
             this.Hide();
+        }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
